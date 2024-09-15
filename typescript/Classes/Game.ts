@@ -36,4 +36,52 @@ export default class Game {
     console.log('Game started');
     this.gameLoop();
   }
+  gameLoop() {
+    while (!this.board.gameOver) {
+      console.clear();
+      this.board.print();
+
+      if (this.currentPlayer instanceof ComputerPlayer) {
+        // Datorns drag
+        console.log(`It's ${this.currentPlayer.name}'s turn.`);
+        let move: number;
+        do {
+          move = (this.currentPlayer as ComputerPlayer).makeMove(this.board);
+          console.log(`Computer ${this.currentPlayer.name} chooses column ${move}.`);
+        } while (!this.makeMove(move, this.currentPlayer)); // Gör draget direkt i loopen
+
+        if (this.board.gameOver) {
+          console.clear();
+          this.board.print();
+          console.log(`Player ${this.currentPlayer.name} (${this.currentPlayer.marker}) wins!`);
+          this.askToPlayAgain(); // Hantera omstart eller avslutning av spelet
+          return;
+        }
+
+        this.currentPlayer = this.currentPlayer === this.player1 ? this.player2 : this.player1;
+
+        // Pausa för att visa draget innan nästa dras
+        this.pause(1000); // 1 sekunds paus (1000 ms)
+      } else {
+        // Mänsklig spelare
+        let move = prompt(`Enter your move ${this.currentPlayer.marker} ${this.currentPlayer.name} - enter column: `);
+
+        if (RegExp(/[a-zA-Z]/g).test(move)) {
+          console.log('Invalid move, try again');
+          continue;
+        }
+
+        if (this.makeMove(parseInt(move), this.currentPlayer)) {
+          if (this.board.gameOver) {
+            console.clear();
+            this.board.print();
+            console.log(`Player ${this.currentPlayer.name} (${this.currentPlayer.marker}) wins!`);
+            this.askToPlayAgain(); // Hantera omstart eller avslutning av spelet
+            return;
+          }
+          this.currentPlayer = this.currentPlayer === this.player1 ? this.player2 : this.currentPlayer;
+        }
+      }
+    }
+  }
 }
