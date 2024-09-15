@@ -40,19 +40,3 @@ npm start
 eller
 yarn start
 ```
-
-Detta kommando startar spelet och ger dig möjlighet att välja en spelform.
-
-Välj en spelform:
-
-1.För Människa mot Människa
-2.För Människa mot Dator
-3.För Dator mot Dator
-Följ anvisningarna i terminalen för att spela spelet.
-
-Kodstruktur
-
-. src/Classes/Board.ts: Innehåller klassen Board, som hanterar spelbrädets tillstånd och tillhandahåller metoder för att skriva ut brädet, hämta giltiga kolumner, ångra drag och kontrollera om brädet är fullt.
-. src/Classes/Player.ts: Innehåller klassen Player, som representerar en spelare med ett namn och en marker.
-. src/Classes/ComputerPlayer.ts: Ärver från Player och representerar en datorspelare med enkel AI.
-. src/Classes/Game.ts: Innehåller klassen Game, som hanterar spelets flöde, inklusive turordning, drag och segerkontroll.
