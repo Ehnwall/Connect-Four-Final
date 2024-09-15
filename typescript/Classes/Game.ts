@@ -32,4 +32,8 @@ export default class Game {
     this.currentPlayer = this.player1;
     this.gameLoop();
   }
+  start() {
+    console.log('Game started');
+    this.gameLoop();
+  }
 }
