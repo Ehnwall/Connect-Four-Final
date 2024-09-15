@@ -27,14 +27,7 @@ export default class Board {
     }
     return validColumns;
   }
-  undoMove(column: number): void {
-    for (let row = 0; row < this.matrix.length; row++) {
-      if (this.matrix[row][column] !== null) {
-        this.matrix[row][column] = null;
-        break;
-      }
-    }
-  }
+
   isFull(): boolean {
     return this.matrix[0].every((cell) => cell !== null);
   }
