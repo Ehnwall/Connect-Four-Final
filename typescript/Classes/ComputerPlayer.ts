@@ -8,4 +8,12 @@ export default class ComputerPlayer extends Player {
     super(name, marker);
     this.intelligence = intelligence;
   }
+  makeMove(board: Board): number {
+    let column: number;
+    do {
+      column = Math.floor(Math.random() * 7) + 1;
+    } while (board.matrix[0][column - 1] !== null);
+
+    return column;
+  }
 }
