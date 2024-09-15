@@ -35,4 +35,7 @@ export default class Board {
       }
     }
   }
+  isFull(): boolean {
+    return this.matrix[0].every((cell) => cell !== null);
+  }
 }
