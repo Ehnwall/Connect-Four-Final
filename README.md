@@ -43,7 +43,7 @@ yarn start
 
 Detta kommando startar spelet och ger dig möjlighet att välja en spelform.
 
-Välj en spelform:
+Välj en spelform: </n>
 1.För Människa mot Människa
 2.För Människa mot Dator
 3.För Dator mot Dator
