@@ -84,4 +84,10 @@ export default class Game {
       }
     }
   }
+  pause(duration: number) {
+    const start = Date.now();
+    while (Date.now() - start < duration) {
+      // Enkelt sätt att skapa en paus
+    }
+  }
 }
