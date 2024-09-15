@@ -153,4 +153,19 @@ export default class Game {
     }
     return false;
   }
+  private checkColumns(marker: string): boolean {
+    for (let col = 0; col < this.board.matrix[0].length; col++) {
+      for (let row = 0; row <= this.board.matrix.length - 4; row++) {
+        if (
+          this.board.matrix[row][col] === marker &&
+          this.board.matrix[row + 1][col] === marker &&
+          this.board.matrix[row + 2][col] === marker &&
+          this.board.matrix[row + 3][col] === marker
+        ) {
+          return true;
+        }
+      }
+    }
+    return false;
+  }
 }
