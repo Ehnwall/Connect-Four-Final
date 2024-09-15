@@ -90,4 +90,17 @@ export default class Game {
       // Enkelt sätt att skapa en paus
     }
   }
+  askToPlayAgain() {
+    const playAgain = prompt('Do you want to play again? (yes/no): ').toLowerCase();
+
+    if (playAgain === 'yes' || playAgain === 'ja') {
+      // Återställ spelet
+      this.board = new Board(); // Återställ spelbrädet
+      this.currentPlayer = this.player1; // Återställ till spelare 1
+      console.log('Starting a new game...');
+      this.gameLoop(); // Starta om spelet
+    } else {
+      console.log('Thanks for playing!');
+    }
+  }
 }
