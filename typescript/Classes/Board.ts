@@ -18,4 +18,13 @@ export default class Board {
     console.log(horizontalSeparator);
     console.log('  1   2   3   4   5   6   7');
   }
+  getValidColumns(): number[] {
+    const validColumns: number[] = [];
+    for (let col = 0; col < 7; col++) {
+      if (this.matrix[0][col] === null) {
+        validColumns.push(col + 1);
+      }
+    }
+    return validColumns;
+  }
 }
