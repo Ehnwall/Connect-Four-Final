@@ -27,18 +27,19 @@ Connect Four är ett klassiskt tvåspelarspel där målet är att vara den förs
 
 2.**Installera Dependencies:**
 
-```npm install
+```bash
+npm install
 eller
 yarn install
 ```
 
 3. Kör spelet
 
-## npm start
-
+```bash
+npm start
 eller
-
-## yarn start
+yarn start
+```
 
 Detta kommando startar spelet och ger dig möjlighet att välja en spelform.
 
