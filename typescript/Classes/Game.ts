@@ -138,4 +138,19 @@ export default class Game {
   checkWin(marker: string): boolean {
     return this.checkRows(marker) || this.checkColumns(marker) || this.checkDiagonals(marker);
   }
+  private checkRows(marker: string): boolean {
+    for (let row = 0; row < this.board.matrix.length; row++) {
+      for (let col = 0; col <= this.board.matrix[row].length - 4; col++) {
+        if (
+          this.board.matrix[row][col] === marker &&
+          this.board.matrix[row][col + 1] === marker &&
+          this.board.matrix[row][col + 2] === marker &&
+          this.board.matrix[row][col + 3] === marker
+        ) {
+          return true;
+        }
+      }
+    }
+    return false;
+  }
 }
