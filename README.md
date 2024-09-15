@@ -27,11 +27,10 @@ Connect Four är ett klassiskt tvåspelarspel där målet är att vara den förs
 
 2.**Installera Dependencies:**
 
-## npm install
-
+```npm install
 eller
-
-## yarn install
+yarn install
+```
 
 3. Kör spelet
 
