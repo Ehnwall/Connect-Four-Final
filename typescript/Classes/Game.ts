@@ -58,20 +58,23 @@ export default class Game {
           return;
         }
 
+        // Byt till nästa spelare
         this.currentPlayer = this.currentPlayer === this.player1 ? this.player2 : this.player1;
 
         // Pausa för att visa draget innan nästa dras
         this.pause(1000); // 1 sekunds paus (1000 ms)
       } else {
         // Mänsklig spelare
-        let move = prompt(`Enter your move ${this.currentPlayer.marker} ${this.currentPlayer.name} - enter column: `);
+        let moveStr = prompt(`Enter your move ${this.currentPlayer.marker} ${this.currentPlayer.name} - enter column: `);
 
-        if (RegExp(/[a-zA-Z]/g).test(move)) {
+        // Kontrollera att användarens inmatning är ett giltigt nummer
+        const move = parseInt(moveStr, 10);
+        if (isNaN(move) || move < 1 || move > 7) {
           console.log('Invalid move, try again');
           continue;
         }
 
-        if (this.makeMove(parseInt(move), this.currentPlayer)) {
+        if (this.makeMove(move, this.currentPlayer)) {
           if (this.board.gameOver) {
             console.clear();
             this.board.print();
@@ -79,11 +82,14 @@ export default class Game {
             this.askToPlayAgain(); // Hantera omstart eller avslutning av spelet
             return;
           }
-          this.currentPlayer = this.currentPlayer === this.player1 ? this.player2 : this.currentPlayer;
+
+          // Byt till nästa spelare
+          this.currentPlayer = this.currentPlayer === this.player1 ? this.player2 : this.player1;
         }
       }
     }
   }
+
   pause(duration: number) {
     const start = Date.now();
     while (Date.now() - start < duration) {
