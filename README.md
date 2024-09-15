@@ -35,11 +35,11 @@ eller
 
 3. Kör spelet
 
-npm start
+## npm start
 
-# eller
+eller
 
-yarn start
+## yarn start
 
 Detta kommando startar spelet och ger dig möjlighet att välja en spelform.
 
