@@ -103,4 +103,36 @@ export default class Game {
       console.log('Thanks for playing!');
     }
   }
+  makeMove(column: number, player: Player | string): boolean {
+    const marker = typeof player === 'string' ? player : player.marker;
+
+    if (this.board.gameOver) {
+      console.log('The game is over! No more moves allowed.');
+      return false;
+    }
+
+    if (column < 1 || column > 7) {
+      console.log('Invalid move, try again');
+      return false;
+    }
+
+    if (this.board.matrix[0][column - 1] !== null) {
+      console.log('Column is full, try a different column');
+      return false;
+    }
+
+    for (let row = this.board.matrix.length - 1; row >= 0; row--) {
+      if (this.board.matrix[row][column - 1] === null) {
+        this.board.matrix[row][column - 1] = marker;
+        break;
+      }
+    }
+
+    if (this.checkWin(marker)) {
+      console.log(`Player ${marker} wins!`);
+      this.board.gameOver = true;
+    }
+
+    return true;
+  }
 }
