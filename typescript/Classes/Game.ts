@@ -135,4 +135,7 @@ export default class Game {
 
     return true;
   }
+  checkWin(marker: string): boolean {
+    return this.checkRows(marker) || this.checkColumns(marker) || this.checkDiagonals(marker);
+  }
 }
