@@ -168,4 +168,35 @@ export default class Game {
     }
     return false;
   }
+  private checkDiagonals(marker: string): boolean {
+    // Check positive slope diagonals
+    for (let row = 0; row <= this.board.matrix.length - 4; row++) {
+      for (let col = 0; col <= this.board.matrix[row].length - 4; col++) {
+        if (
+          this.board.matrix[row][col] === marker &&
+          this.board.matrix[row + 1][col + 1] === marker &&
+          this.board.matrix[row + 2][col + 2] === marker &&
+          this.board.matrix[row + 3][col + 3] === marker
+        ) {
+          return true;
+        }
+      }
+    }
+
+    // Check negative slope diagonals
+    for (let row = 3; row < this.board.matrix.length; row++) {
+      for (let col = 0; col <= this.board.matrix[row].length - 4; col++) {
+        if (
+          this.board.matrix[row][col] === marker &&
+          this.board.matrix[row - 1][col + 1] === marker &&
+          this.board.matrix[row - 2][col + 2] === marker &&
+          this.board.matrix[row - 3][col + 3] === marker
+        ) {
+          return true;
+        }
+      }
+    }
+
+    return false;
+  }
 }
