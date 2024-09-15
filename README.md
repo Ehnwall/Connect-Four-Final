@@ -25,7 +25,7 @@ Connect Four är ett klassiskt tvåspelarspel där målet är att vara den förs
    cd connect-four
    ```
 
-2.Installera Dependencies:
+2.**Installera Dependencies:**
 
 ## npm install
 
